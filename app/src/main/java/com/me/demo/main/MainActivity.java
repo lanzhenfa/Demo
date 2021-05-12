@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.me.demo.R;
 import com.me.demo.base.BaseActivity;
 import com.me.demo.base.BaseFragment;
+import com.me.demo.calendar.CalendarFragment;
+import com.me.demo.util.Config;
 
 import java.util.LinkedList;
 
@@ -69,6 +71,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
     public void onMainItemClick(int position) {
         Log.d(TAG, "onMainItemClick position:" + position);
         switch (position) {
+            case Config.FRAGMENT_TAG_CALENDAR:
+                replaceFragment(new CalendarFragment());
+                break;
             default:
                 break;
         }

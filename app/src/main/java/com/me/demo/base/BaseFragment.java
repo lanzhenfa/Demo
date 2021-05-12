@@ -26,6 +26,10 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate");
         mContext = getContext();
+        mPresenter = initPresenter();
+        if (mPresenter != null) {
+            mPresenter.attachView((V) this);
+        }
     }
 
     @Nullable
@@ -35,10 +39,6 @@ public abstract class BaseFragment<V, T extends BasePresenter<V>> extends Fragme
         Log.d(TAG, "onCreateView");
         View mView = inflater.inflate(getContentView(), container, false);
         initView(mView);
-        mPresenter = initPresenter();
-        if (mPresenter != null) {
-            mPresenter.attachView((V) this);
-        }
         initListener();
         return mView;
     }

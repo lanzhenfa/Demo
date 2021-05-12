@@ -10,8 +10,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.me.demo.R;
 import com.me.demo.base.BaseActivity;
 import com.me.demo.base.BaseFragment;
-import com.me.demo.test.TestFragment;
-import com.me.demo.util.Config;
 
 import java.util.LinkedList;
 
@@ -62,6 +60,7 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
             Log.e(TAG, "main adapter null");
             return;
         }
+        mMainItems.addAll(items);
         mMainAdapter.updateItemData(items);
         mMainAdapter.notifyDataSetChanged();
     }
@@ -70,9 +69,6 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
     public void onMainItemClick(int position) {
         Log.d(TAG, "onMainItemClick position:" + position);
         switch (position) {
-            case Config.FRAGMENT_TAG_TEST:
-                replaceFragment(new TestFragment());
-                break;
             default:
                 break;
         }

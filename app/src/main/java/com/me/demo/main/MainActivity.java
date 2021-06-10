@@ -11,6 +11,7 @@ import com.me.demo.R;
 import com.me.demo.base.BaseActivity;
 import com.me.demo.base.BaseFragment;
 import com.me.demo.calendar.CalendarFragment;
+import com.me.demo.database.DatabaseFragment;
 import com.me.demo.util.Config;
 
 import java.util.LinkedList;
@@ -31,6 +32,14 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
     protected void initView() {
         mMainRecycler = findViewById(R.id.activity_main_recycler);
         mMainRecycler.setLayoutManager(new GridLayoutManager(mContext, 4));
+
+        int firstAndLastColumnW = 15;
+        int firstRowTopMargin = 15;
+        MainGridItemDecoration mItemDecoration = new MainGridItemDecoration(
+                this, firstAndLastColumnW, firstRowTopMargin, firstRowTopMargin);
+        mItemDecoration.setFirstRowTopMargin(firstRowTopMargin);
+        mItemDecoration.setLastRowBottomMargin(firstRowTopMargin);
+        mMainRecycler.addItemDecoration(mItemDecoration);
         mMainAdapter = new MainRecyclerAdapter(mMainItems);
         mMainRecycler.setAdapter(mMainAdapter);
         //默认显示列表
@@ -73,6 +82,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
         switch (position) {
             case Config.FRAGMENT_TAG_CALENDAR:
                 replaceFragment(new CalendarFragment());
+                break;
+            case Config.FRAGMENT_TAG_DATABASE:
+                replaceFragment(new DatabaseFragment());
                 break;
             default:
                 break;

@@ -18,7 +18,7 @@ public class BaseApplication extends Application {
         mContext = this;
     }
 
-    public static BaseApplication getIntance() {
+    public static BaseApplication getInstance() {
         return mContext;
     }
 }

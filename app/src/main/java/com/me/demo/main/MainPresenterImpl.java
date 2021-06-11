@@ -21,7 +21,7 @@ public class MainPresenterImpl extends BasePresenter<IMainContract.IMainView> {
     }
 
     private LinkedList<String> initItemData() {
-        String[] mItemArray = BaseApplication.getIntance().
+        String[] mItemArray = BaseApplication.getInstance().
                 getResources().getStringArray(R.array.main_item);
         Log.d(TAG, "initItemData:" + Arrays.toString(mItemArray));
         return new LinkedList<>(Arrays.asList(mItemArray));

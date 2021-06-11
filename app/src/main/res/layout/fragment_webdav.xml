@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/webdav_create"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E0EAE0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/webdav_create_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="建立连接" />
+
+            <TextView
+                android:id="@+id/webdav_create_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#EAEAE0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_create">
+
+            <Button
+                android:id="@+id/webdav_list_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取资源列表" />
+
+            <TextView
+                android:id="@+id/webdav_list_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_storage_path"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#E0EAE0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_list">
+
+            <Button
+                android:id="@+id/webdav_storage_path_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="获取硬盘路径" />
+
+            <TextView
+                android:id="@+id/webdav_storage_path_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_exist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#EAEAE0"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_storage_path">
+
+            <EditText
+                android:id="@+id/webdav_file_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入需要判断的文件（夹）名称" />
+
+            <Button
+                android:id="@+id/webdav_exist_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="判断是否存在" />
+
+            <TextView
+                android:id="@+id/webdav_exist_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_create_dir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#E0EAE0"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_exist">
+
+            <EditText
+                android:id="@+id/webdav_create_dir_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入文件夹名称" />
+
+            <Button
+                android:id="@+id/webdav_create_dir_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="创建文件夹" />
+
+            <TextView
+                android:id="@+id/webdav_create_dir_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_download_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#EAEAE0"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_create_dir">
+
+            <EditText
+                android:id="@+id/webdav_download_file_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入要下载的源文件" />
+
+            <EditText
+                android:id="@+id/webdav_download_file_target_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入要下载到的路径" />
+
+            <Button
+                android:id="@+id/webdav_download_file_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="下载文件" />
+
+            <TextView
+                android:id="@+id/webdav_download_file_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_upload_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#E0EAE0"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_download_file">
+
+            <EditText
+                android:id="@+id/webdav_upload_file_target_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入上传到的目标路径" />
+
+            <EditText
+                android:id="@+id/webdav_upload_file_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入源文件路径" />
+
+            <Button
+                android:id="@+id/webdav_upload_file_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="上传文件" />
+
+            <TextView
+                android:id="@+id/webdav_upload_file_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/webdav_delete_file"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#EAEAE0"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/webdav_upload_file">
+
+            <EditText
+                android:id="@+id/webdav_delete_file_input"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="输入要删除的文件" />
+
+            <Button
+                android:id="@+id/webdav_delete_file_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="删除文件" />
+
+            <TextView
+                android:id="@+id/webdav_delete_file_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

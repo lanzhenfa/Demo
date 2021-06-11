@@ -13,6 +13,7 @@ import com.me.demo.base.BaseFragment;
 import com.me.demo.calendar.CalendarFragment;
 import com.me.demo.database.DatabaseFragment;
 import com.me.demo.util.Config;
+import com.me.demo.webdav.WebDavFragment;
 
 import java.util.LinkedList;
 
@@ -85,6 +86,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_DATABASE:
                 replaceFragment(new DatabaseFragment());
+                break;
+            case Config.FRAGMENT_TAG_WEBDAV:
+                replaceFragment(new WebDavFragment());
                 break;
             default:
                 break;

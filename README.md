@@ -4,10 +4,10 @@ Demo程序，用于调试
 
 WebDav：
 一、配置及环境：
-1、测试服务器：坚果云（https://www.jianguoyun.com）
-2、测试服务器地址：http://dav.jianguoyun.com/dav/
-3、用户名：lanzhenfa@gmail.com
-4、应用密码：a4x8y2fa2mucec9i
+1、测试服务器：坚果云（https://www.jianguoyun.com）或 8500服务器
+2、测试服务器地址：http://dav.jianguoyun.com/dav/ 或 http://192.168.31.209/webdav/
+3、用户名：lanzhenfa@gmail.com 或 admin
+4、应用密码：a4x8y2fa2mucec9i 或 admin
 5、登录密码：meannothing@u
 6、参考教程：https://www.cnblogs.com/robotpaul/p/12005045.html
 二、问题记录：

@@ -205,9 +205,9 @@ public class WebDavFragment extends BaseFragment<IWebDavContract.IWebDavView, We
         }
         switch (view.getId()) {
             case R.id.webdav_create_btn:
-                String url = "http://dav.jianguoyun.com/dav/";
-                String username = "lanzhenfa@gmail.com";
-                String password = "a4x8y2fa2mucec9i";
+                String url = "http://192.168.31.209/webdav/";
+                String username = "admin";
+                String password = "admin";
                 mPresenter.createWebDav(url, username, password);
                 break;
             case R.id.webdav_list_btn:

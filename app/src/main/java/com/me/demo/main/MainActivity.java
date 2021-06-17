@@ -12,6 +12,8 @@ import com.me.demo.base.BaseActivity;
 import com.me.demo.base.BaseFragment;
 import com.me.demo.calendar.CalendarFragment;
 import com.me.demo.database.DatabaseFragment;
+import com.me.demo.udp.client.UdpClientFragment;
+import com.me.demo.udp.server.UdpServerFragment;
 import com.me.demo.util.Config;
 import com.me.demo.webdav.WebDavFragment;
 
@@ -89,6 +91,12 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_WEBDAV:
                 replaceFragment(new WebDavFragment());
+                break;
+            case Config.FRAGMENT_TAG_UDP_CLIENT:
+                replaceFragment(new UdpClientFragment());
+                break;
+            case Config.FRAGMENT_TAG_UDP_SERVER:
+                replaceFragment(new UdpServerFragment());
                 break;
             default:
                 break;

@@ -320,7 +320,7 @@ public class WebDavFragment extends BaseFragment<IWebDavContract.IWebDavView, We
         switch (errorCode) {
             case -1:
                 Log.e(TAG, "storage path null");
-                mGetStoragePathTxt.setText(String.format("获取到的硬盘路：%s", null));
+                mGetStoragePathTxt.setText("获取到的硬盘路: null");
                 break;
         }
     }

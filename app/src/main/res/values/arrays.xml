@@ -4,5 +4,7 @@
         <item>日历提醒</item>
         <item>数据库</item>
         <item>WebDav</item>
+        <item>UDP Client</item>
+        <item>UDP Server</item>
     </string-array>
 </resources>

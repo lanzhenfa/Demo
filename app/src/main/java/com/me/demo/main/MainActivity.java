@@ -16,6 +16,7 @@ import com.me.demo.udp.client.UdpClientFragment;
 import com.me.demo.udp.server.UdpServerFragment;
 import com.me.demo.util.Config;
 import com.me.demo.webdav.WebDavFragment;
+import com.me.demo.websocket.WebSocketFragment;
 
 import java.util.LinkedList;
 
@@ -97,6 +98,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_UDP_SERVER:
                 replaceFragment(new UdpServerFragment());
+                break;
+            case Config.FRAGMENT_TAG_WEBSOCKET:
+                replaceFragment(new WebSocketFragment());
                 break;
             default:
                 break;

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/websocket_server_port_edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="端口号"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/websocket_server_start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="启动服务端"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/websocket_server_port_edit" />
+
+    <TextView
+        android:id="@+id/websocket_server_start_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/websocket_server_start_btn" />
+
+    <View
+        android:id="@+id/divider_one"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:background="#E0E0E0"
+        app:layout_constraintTop_toBottomOf="@id/websocket_server_start_txt" />
+
+    <EditText
+        android:id="@+id/websocket_server_message_edit"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="输入回复客户端的内容"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider_one" />
+
+    <Button
+        android:id="@+id/websocket_server_send_message_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="回复客户端"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/websocket_server_message_edit" />
+
+    <TextView
+        android:id="@+id/websocket_server_send_message_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/websocket_server_send_message_btn" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

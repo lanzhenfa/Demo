@@ -6,5 +6,6 @@
         <item>WebDav</item>
         <item>UDP Client</item>
         <item>UDP Server</item>
+        <item>WebSocket</item>
     </string-array>
 </resources>

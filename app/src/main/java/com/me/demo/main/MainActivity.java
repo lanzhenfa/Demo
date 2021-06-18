@@ -12,6 +12,7 @@ import com.me.demo.base.BaseActivity;
 import com.me.demo.base.BaseFragment;
 import com.me.demo.calendar.CalendarFragment;
 import com.me.demo.database.DatabaseFragment;
+import com.me.demo.http.HttpFragment;
 import com.me.demo.udp.client.UdpClientFragment;
 import com.me.demo.udp.server.UdpServerFragment;
 import com.me.demo.util.Config;
@@ -101,6 +102,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_WEBSOCKET:
                 replaceFragment(new WebSocketFragment());
+                break;
+            case Config.FRAGMENT_TAG_HTTP:
+                replaceFragment(new HttpFragment());
                 break;
             default:
                 break;

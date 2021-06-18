@@ -7,5 +7,6 @@
         <item>UDP Client</item>
         <item>UDP Server</item>
         <item>WebSocket</item>
+        <item>Http</item>
     </string-array>
 </resources>

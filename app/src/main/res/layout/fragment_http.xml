@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/http_shake_hands_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="握手协议"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/http_update_db_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="曲库更新协议"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/http_shake_hands_btn" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

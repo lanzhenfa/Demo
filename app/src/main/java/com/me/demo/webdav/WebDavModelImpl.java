@@ -146,7 +146,7 @@ public class WebDavModelImpl implements IWebDavContract.IWebDavModel {
             public void subscribe(ObservableEmitter<Boolean> emitter) throws Exception {
                 String path = mServerUrl + originalPath;
                 Log.e(TAG, "download path:" + path);
-                emitter.onNext(FileUtils.writeFileToSD(mSardine.get(path), targetPath));
+                emitter.onNext(FileUtils.writeFile(mSardine.get(path), targetPath));
             }
         }).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).

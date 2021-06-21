@@ -1,6 +1,7 @@
 package com.me.demo.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -12,6 +13,8 @@ import java.io.InputStream;
  * Create by lzf on 6/10/21
  */
 public class FileUtils {
+
+    private static final String TAG = "FileUtils";
 
     public static byte[] readFileToByteArray(File file) throws Exception {
         FileInputStream fis = new FileInputStream(file);
@@ -26,12 +29,15 @@ public class FileUtils {
         return bos.toByteArray();
     }
 
-    public static boolean writeFileToSD(InputStream inputStream, String path) throws Exception {
+    public static boolean writeFile(InputStream inputStream, String path) throws Exception {
+        Log.d(TAG, ">>writeFile");
         boolean result = false;
         if (inputStream == null) {
+            Log.e(TAG, "inputStream null, return");
             return result;
         }
         if (TextUtils.isEmpty(path)) {
+            Log.e(TAG, "path null, return");
             return result;
         }
         byte[] bytes = new byte[1024 * 4];
@@ -47,6 +53,7 @@ public class FileUtils {
 
         result = true;
 
+        Log.e(TAG, ">>writeFile finish");
         return result;
     }
 }

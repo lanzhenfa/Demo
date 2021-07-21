@@ -9,5 +9,6 @@
         <item>WebSocket</item>
         <item>Http</item>
         <item>OkHttp</item>
+        <item>SurfaceView</item>
     </string-array>
 </resources>

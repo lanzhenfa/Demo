@@ -14,6 +14,7 @@ import com.me.demo.calendar.CalendarFragment;
 import com.me.demo.database.DatabaseFragment;
 import com.me.demo.http.HttpFragment;
 import com.me.demo.okhttp.OkHttpFragment;
+import com.me.demo.surfaceview.SurfaceFragment;
 import com.me.demo.udp.client.UdpClientFragment;
 import com.me.demo.udp.server.UdpServerFragment;
 import com.me.demo.util.Config;
@@ -109,6 +110,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_OKHTTP:
                 replaceFragment(new OkHttpFragment());
+                break;
+            case Config.FRAGMENT_TAG_SURFACE:
+                replaceFragment(new SurfaceFragment());
                 break;
             default:
                 break;

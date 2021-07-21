@@ -64,6 +64,7 @@ public class OkHttpModelImpl implements IOkHttpModel {
     private int CMDID_UPDATE_DATABASE = 10001;
 
     private Sardine mSardine;
+    private Disposable mShakeHandsDispose;
 
     public void onInit() {
         mSardine = new OkHttpSardine();
@@ -85,35 +86,45 @@ public class OkHttpModelImpl implements IOkHttpModel {
 
         String mJSONStr = mJSONObj.toString();
         Log.d(TAG, "request body:" + mJSONStr);
-        Request request = new Request.Builder().
+        final Request request = new Request.Builder().
                 url(getDefaultUrl()).
                 post(RequestBody.create(MediaType.parse(OKHTTP_MEDIA_TYPE_WITH_CHARSET), mJSONStr)).
                 build();
         Log.e(TAG, ">>init OkHttpClient");
-        OkHttpClient okHttpClient = new OkHttpClient.Builder().
+        final OkHttpClient okHttpClient = new OkHttpClient.Builder().
                 connectTimeout(5 * 1000, TimeUnit.MILLISECONDS).
                 build();
         Log.e(TAG, ">>newCall request");
-        okHttpClient.newCall(request).enqueue(new Callback() {
+        mShakeHandsDispose = Observable.interval(0, 5 * 1000, TimeUnit.MILLISECONDS).
+                subscribeOn(Schedulers.io()).subscribe(new Consumer<Long>() {
             @Override
-            public void onFailure(@NotNull final Call call, @NotNull final IOException e) {
-                Log.d(TAG, "onFailure:" + e.getMessage());
-                runOnUiThread(new Runnable() {
+            public void accept(Long aLong) throws Exception {
+                Log.e(TAG, "accept aLong:" + aLong);
+                okHttpClient.newCall(request).enqueue(new Callback() {
                     @Override
-                    public void run() {
-                        callback.onShakeHandsFailed(-1, e.getMessage());
+                    public void onFailure(@NotNull final Call call, @NotNull final IOException e) {
+                        Log.d(TAG, "onFailure:" + e.getMessage());
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                callback.onShakeHandsFailed(-1, e.getMessage());
+                            }
+                        });
                     }
-                });
-            }
 
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                String responseBody = response.body().string();
-                Log.d(TAG, "onResponse:" + responseBody);
-                runOnUiThread(new Runnable() {
                     @Override
-                    public void run() {
-                        callback.onShakeHandsSuccess();
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        String responseBody = response.body().string();
+                        Log.d(TAG, "onResponse:" + responseBody);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (mShakeHandsDispose != null && !mShakeHandsDispose.isDisposed()) {
+                                    mShakeHandsDispose.dispose();
+                                }
+                                callback.onShakeHandsSuccess();
+                            }
+                        });
                     }
                 });
             }
@@ -188,7 +199,8 @@ public class OkHttpModelImpl implements IOkHttpModel {
                 Log.e(TAG, "download from url:" + url);
                 Log.e(TAG, "download to path:" + toPath);
                 boolean result = false;
-                if (mSardine != null) {
+                if (mSardine != null && mSardine.exists(url)) {
+                    Log.e(TAG, "exist file, start download");
                     result = FileUtils.writeFile(mSardine.get(url), toPath);
                 }
                 emitter.onNext(result);

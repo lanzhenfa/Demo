@@ -10,5 +10,6 @@
         <item>Http</item>
         <item>OkHttp</item>
         <item>SurfaceView</item>
+        <item>TextureView</item>
     </string-array>
 </resources>

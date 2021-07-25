@@ -13,6 +13,7 @@ public class Config {
     public final static int FRAGMENT_TAG_HTTP = 6;
     public final static int FRAGMENT_TAG_OKHTTP = 7;
     public final static int FRAGMENT_TAG_SURFACE = 8;
+    public final static int FRAGMENT_TAG_TEXTURE = 9;
 
     /*******************************UDP相关*******************************/
     public final static int UDP_CLIENT_PORT = 8890;

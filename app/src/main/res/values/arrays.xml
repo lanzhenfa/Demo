@@ -11,5 +11,6 @@
         <item>OkHttp</item>
         <item>SurfaceView</item>
         <item>TextureView</item>
+        <item>动态壁纸</item>
     </string-array>
 </resources>

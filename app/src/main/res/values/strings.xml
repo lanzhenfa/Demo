@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Demo</string>
+
+    <string name="service_set_live_wallpaper">视频壁纸</string>
 </resources>

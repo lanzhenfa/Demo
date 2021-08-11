@@ -19,6 +19,7 @@ import com.me.demo.textureview.TextureFragment;
 import com.me.demo.udp.client.UdpClientFragment;
 import com.me.demo.udp.server.UdpServerFragment;
 import com.me.demo.util.Config;
+import com.me.demo.wallpaper.WallPaperFragment;
 import com.me.demo.webdav.WebDavFragment;
 import com.me.demo.websocket.WebSocketFragment;
 
@@ -117,6 +118,9 @@ public class MainActivity extends BaseActivity<IMainContract.IMainView, MainPres
                 break;
             case Config.FRAGMENT_TAG_TEXTURE:
                 replaceFragment(new TextureFragment());
+                break;
+            case Config.FRAGMENT_TAG_LIVE_WALLPAPER:
+                replaceFragment(new WallPaperFragment());
                 break;
             default:
                 break;

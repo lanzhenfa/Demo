@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.me.demo">
 
+    <uses-permission android:name="android.permission.SET_WALLPAPER" />
+    <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.READ_CALENDAR" />
@@ -35,6 +37,21 @@
             </intent-filter>
         </activity>
         <service android:name=".calendar.AlarmService" />
+        <service
+            android:name=".wallpaper.VideoWallPaperService"
+            android:label="@string/service_set_live_wallpaper"
+            android:permission="android.permission.BIND_WALLPAPER"
+            android:process=":wallpaper"
+            >
+            <!-- 为动态壁纸配置intent-filter -->
+            <intent-filter>
+                <action android:name="android.service.wallpaper.WallpaperService" />
+            </intent-filter>
+            <!-- 为动态壁纸配置meta-data -->
+            <meta-data
+                android:name="android.service.wallpaper"
+                android:resource="@xml/live_wallpaper" />
+        </service>
     </application>
 
 </manifest>
